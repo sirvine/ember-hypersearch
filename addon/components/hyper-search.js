@@ -30,6 +30,7 @@ export default Component.extend({
   layout,
   minQueryLength: 3,
   debounceRate: 0,
+  debounceAfter: true,
   endpoint: null,
   resultKey: null,
   placeholder: null,
@@ -122,7 +123,7 @@ export default Component.extend({
 
   actions: {
     search(_event, query) {
-      debounce(this, '_search', query, get(this, 'debounceRate'), true);
+      debounce(this, '_search', query, get(this, 'debounceRate'), get(this, 'debounceAfter'));
     },
 
     selectResult(result) {
